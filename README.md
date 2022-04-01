@@ -64,7 +64,7 @@ r := result.Wrap(u.GetByID(id))
 This constructs a result type from the return value of the API function, this result type contains either the value or the error as a single entity.
 
 ```go
-r.Valid() // if err != nil
+r.Valid() // if err == nil
 r.Value() // return the user if r.Valid() == true
 r.Error() // return the error if r.Valid() == false
 ```

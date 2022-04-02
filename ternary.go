@@ -37,6 +37,17 @@ func TernaryFn[T any](cond bool, a, b func() T) T {
 //         result, err = B()
 //     }
 //
+// You can combine Wrap() and Unwrap() so you end up with normal Go error types:
+//
+//     result, err := Unwrap(TernaryResult(
+//         x > 1,
+//         Wrap(A()),
+//         Wrap(B()),
+//     ))
+//     if err != nil {
+//         return nil, err
+//     }
+//
 func TernaryResult[T any](cond bool, a, b Result[T]) Result[T] {
 	if cond {
 		return a

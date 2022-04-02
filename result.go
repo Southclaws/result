@@ -39,3 +39,9 @@ func Wrap[T any](t T, err error) Result[T] {
 		return result[T]{t, nil}
 	}
 }
+
+// Unwrap takes a result type value and turns it back into the (T, error) that
+// is commonly used in idiomatic Go.
+func Unwrap[T any](r Result[T]) (T, error) {
+	return r.Value(), r.Error()
+}

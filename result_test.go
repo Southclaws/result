@@ -40,3 +40,19 @@ func TestResultWrapSuccess(t *testing.T) {
 	assert.NotNil(t, r.Value())
 	assert.Equal(t, &Fixture, r.Value())
 }
+
+func TestResultUnwrapError(t *testing.T) {
+	r, err := Unwrap(Wrap(Fails()))
+
+	assert.Error(t, err)
+	assert.Nil(t, r)
+	assert.Equal(t, ErrFailed, err)
+}
+
+func TestResultUnwrapSuccess(t *testing.T) {
+	r, err := Unwrap(Wrap(Succeeds()))
+
+	assert.NoError(t, err)
+	assert.NotNil(t, r)
+	assert.Equal(t, &Fixture, r)
+}

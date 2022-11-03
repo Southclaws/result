@@ -1,3 +1,7 @@
+**Note: this was more of an experiment, for an actual real-world library that's well tested and used in production codebases, [check out opt](https://github.com/Southclaws/result).**
+
+---
+
 # Result Type for Go
 
 A super simple generic result type for Go.
